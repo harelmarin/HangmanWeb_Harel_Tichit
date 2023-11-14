@@ -9,6 +9,7 @@ import (
 
 func main() {
 	///// PARSER TEMPLATES HTML
+
 	temp, err := template.ParseGlob("./templates/*.html")
 	if err != nil {
 		fmt.Println(fmt.Sprint("ERREUR => %s", err.Error()))
@@ -16,9 +17,9 @@ func main() {
 	}
 
 	//// 1ERE ROUTE
-	http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/index", func(w http.ResponseWriter, r *http.Request) {
 		data := 0
-		temp.ExecuteTemplate(w, "test", data)
+		temp.ExecuteTemplate(w, "index", data)
 	})
 
 	//// INIT DU SERVEUR LOCAL

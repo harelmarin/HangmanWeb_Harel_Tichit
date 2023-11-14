@@ -1,0 +1,70 @@
+*{
+    font-family: 'Tilt Neon', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #393D3F;
+    
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: #FDFDFF
+}
+
+.pseudo{
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    color: #fff;
+    padding-left: 5px;
+    font-size: 30px;
+    
+}
+
+h2 {
+    color: white
+}
+
+.pseudo:hover {
+    border:2px solid rgba(255,255,255,0.5);
+    transform: scale(1.1);
+}
+
+.pseudo:focus {
+    border:2px solid  #d8b26e 
+}
+
+.difficult{
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    color: #fff;
+    padding-left: 5px;
+    font-size: 30px; 
+}
+
+.difficulte:hover {
+    border:2px solid rgba(255,255,255,0.5);
+    transform: scale(1.1);
+}
+
+select {
+    background-color: #393D3F;
+}
+
+
+
