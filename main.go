@@ -7,6 +7,13 @@ import (
 	"os"
 )
 
+// / STRUCT DATA
+type UserData struct {
+	Nom string
+}
+
+var username UserData
+
 func main() {
 	///// PARSER TEMPLATES HTML
 
@@ -16,10 +23,27 @@ func main() {
 		return
 	}
 
-	//// 1ERE ROUTE
+	//// ROUTE ACCUEIL JEUX
 	http.HandleFunc("/index", func(w http.ResponseWriter, r *http.Request) {
 		data := 0
 		temp.ExecuteTemplate(w, "index", data)
+	})
+
+	/// ROUTE TREATMENT PSEUDO JOUEUR
+	http.HandleFunc("/treatmentlogin", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			username = UserData{
+				Nom: r.FormValue("nom"),
+			}
+			http.Redirect(w, r, "/accueil", http.StatusSeeOther)
+		}
+		temp.ExecuteTemplate(w, "treatmentlogin", username)
+	})
+
+	// / TEST
+	http.HandleFunc("/accueil", func(w http.ResponseWriter, r *http.Request) {
+		datadisplay := username
+		temp.ExecuteTemplate(w, "accueil", datadisplay)
 	})
 
 	//// INIT DU SERVEUR LOCAL

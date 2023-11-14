@@ -9,14 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
-    <title>Route Test</title>
+    <title>Login</title>
 </head>
-<header><h1>Jeu du Pendu</h1></header>
+<header><h1 class="fancy">Hangman Game</h1></header>
 <body>
-    <h2>Votre Nom : </h2>
-    <form action="/treatment" method="POST">
+    <div class="container">
+        <h2>Votre Nom : </h2>
+    <form action="/treatmentlogin" method="POST">
         <label  for="nom"></label><br>
         <input class="pseudo" type="text" name="nom" autocomplete="off" required>
+
+        <input class="boutoncommencer" type="submit" value="COMMENCER">
+    </div>
 </body>
 </html>
 {{end}}
