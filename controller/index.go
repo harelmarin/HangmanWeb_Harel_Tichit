@@ -15,8 +15,8 @@ func TreatmentIndex(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/index", http.StatusSeeOther)
 	}
 
-	user := User{r.FormValue("nom"), r.FormValue("difficulte")}
-	DataUser = user
+	username := Name{r.FormValue("nom")}
+	Nom = username
 	http.Redirect(w, r, "/accueil", http.StatusSeeOther)
 
 }

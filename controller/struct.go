@@ -1,8 +1,16 @@
 package controller
 
-var DataUser User = User{"nul", "nul"}
+var DataUser User = User{"nul"}
+var Nom Name
+var Diff Difficulty
 
-type User struct {
-	Username   string
+type Name struct {
+	Username string
+}
+
+type Difficulty struct {
 	Difficulte string
+}
+type User struct {
+	Word string
 }

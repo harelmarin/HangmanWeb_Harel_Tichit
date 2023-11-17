@@ -6,6 +6,8 @@ import (
 )
 
 func DataJeux(w http.ResponseWriter, r *http.Request) {
-	datajeux := User{DataUser.Username, DataUser.Difficulte}
+	datajeux := Difficulty{Diff.Difficulte}
+
 	initTemplate.Temp.ExecuteTemplate(w, "jeux", datajeux)
+
 }
