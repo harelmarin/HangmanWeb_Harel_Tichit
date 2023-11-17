@@ -1,78 +1,24 @@
 *{
     font-family: 'Tilt Neon', sans-serif;
 }
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.bodybackground {
     background-image: url(../img/IMG_0010.png);
-    
+    margin: 0;
 }
-
-header {
+.headerindex {
+    font-size: 50px;
+    color: white;
     display: flex;
     justify-content: center;
-    font-size: 50px;
-    color: #FDFDFF
-}
 
-.pseudo{
-    width: 300px;
-    height: 40px;
-    text-align: center;
-    background: transparent;
-    border: 2px solid #fff;
-    border-radius: 2px;
-    outline: none;
-    color: #fff;
-    padding-left: 5px;
-    font-size: 30px;
-    display: flex;
-    
-}
-
-h2 {
-    color: white
-}
-
-.pseudo:hover {
-    border:2px solid rgba(255,255,255,0.5);
-    transform: scale(1.1);
-}
-
-.pseudo:focus {
-    border:2px solid  #4cd6c6 
-}
-
-.boutoncommencer {
-    text-align: center;
-    width: 200px;
-    height: 30px;
-    background: transparent;
-    border: 2px solid #fff;
-    border-radius: 2px;
-    outline: none;
-    color: #fff;
-    padding-left: 5px;
-    font-size: 15px;
-    margin-top: 50px;
-    align-self: center;
-    
-}
-
-.boutoncommencer:hover {
-    border:2px solid rgba(255,255,255,0.5);
-    transform: scale(1.1);
-}
-.boutoncommencer:focus {
-    border:2px solid  #4cd6c6
 }
 
 .fancy {
     position: relative;
-    white-space: nowrap;
-    &:after {
+    white-space: nowrap;    
+}
+.fancy:after {
       --deco-height: 0.3125em;
       content: "";
       position: absolute;
@@ -84,14 +30,85 @@ h2 {
       background-size: auto 100%;
       background-repeat: round;
       background-position: 0;
-    }
-  }
-  .container {
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.containerindex {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
 }
 
-input, textarea {
-    -webkit-text-decoration: none !important;
+.pseudo{
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    color: #fff;
+    padding-left: 5px;
+    font-size: 30px;
+    margin-top: 1.5%;
 }
+.pseudo:hover {
+    border:2px solid rgba(255,255,255,0.5);
+    transform: scale(1.1);
+}
+.pseudo:focus {
+    border:2px solid  #4cd6c6 
+}
+
+.boutoncommencer {
+    text-align: center;
+    width: 360px;
+    height: 34px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 6%;
+}
+.boutoncommencer:hover {
+    border:2px solid rgba(255,255,255,0.5);
+    transform: scale(1.1);
+}
+.boutoncommencer:focus {
+    border:2px solid  #4cd6c6
+}
+
+select {
+    text-align: center;
+    width: 360px;
+    height: 34px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+   
+}
+
+option {
+    color: rgb(255, 255, 255);
+    background-color: rgb(40, 46, 46);
+    font-size: 20px;
+}
+
+.containeraccueil {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+

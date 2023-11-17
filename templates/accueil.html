@@ -11,8 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
     <title>Accueil</title>
 </head>
-<body>
-    {{.Nom}}
+<body class="bodybackground">
+  
+            <header class ="headerindex"></div><h1 class="fancy">Bienvenue {{.Username}}</h1>   </header>
+            <main>
+                <h2>Choisir Votre Difficulté :</h2> 
+                <form action="/treatmentaccueil" method="POST">
+                <label for="difficulte"></label>
+                    <div class="containeraccueil">
+			            <select class="selectdiff" name="difficulte" required>
+				        <option value="Facile">Facile</option>
+				        <option value="Moyen">Moyen</option>
+                        <option value="Difficile">Difficile</option>
+		                </select>
+                        <input class="boutoncommencer" type="submit" value="VALIDER"> 
+                    </div>
+                </form>
+            </main>
 </body>
 </html>
 {{end}}
