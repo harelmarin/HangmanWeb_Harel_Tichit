@@ -7,7 +7,7 @@ import (
 // Affiche le mot choisi en tiret avec un espace entre chaque tiret
 func (p *Global) AffichageTirets() string {
 	var result string
-	lettresfind := LettresTrouvees
+	lettresfind := User.LettreDejaTrouve
 	for i := range p.MotaDeviner {
 		lettreTrouvee := false
 		for _, lettre := range lettresfind {

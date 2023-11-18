@@ -13,9 +13,9 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 		if hangman.User.LettreDejaChoisie(hangman.User.LettreJoueur) {
 			hangman.User.MessageEnvoi = "Vous avez déjà émis cette lettre !"
 		} else if strings.Contains(hangman.User.MotaDeviner, hangman.User.LettreJoueur) {
+
 			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
 			hangman.User.MessageEnvoi = "Vous avez trouvé une lettre !"
-			hangman.User.MotCache = hangman.User.AffichageTirets()
 			hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, hangman.User.LettreJoueur)
 		} else {
 			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
@@ -23,6 +23,7 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 			hangman.User.TentativesRestantes--
 		}
 	}
+	hangman.User.MotCache = hangman.User.AffichageTirets()
 	initTemplate.Temp.ExecuteTemplate(w, "jeux", hangman.User)
 }
 
