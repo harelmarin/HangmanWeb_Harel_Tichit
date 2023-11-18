@@ -13,9 +13,9 @@ func LettresTrouver(choixlettres string) []string {
 	return LettresTrouvees
 }
 
-func LettreDejaChoisie(lettre string) bool {
-	for _, l := range LettresChoisis {
-		if l == lettre {
+func (p *Global) LettreDejaChoisie(LettreJoueur string) bool {
+	for _, l := range User.LettreDejaJoue {
+		if l == LettreJoueur {
 			return true
 		}
 	}

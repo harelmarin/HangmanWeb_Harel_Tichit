@@ -35,11 +35,7 @@ func InterfaceJeu() {
 		fmt.Println("\033[H\033[2J")
 		// CAS SI le joueur indique une lettre
 		if len(choixlettres) == 1 {
-			if LettreDejaChoisie(choixlettres) {
-				fmt.Println("Vous avez déjà émis cette lettre")
-				fmt.Println("")
-				continue
-			} else if strings.Contains(Word, choixlettres) {
+			if strings.Contains(Word, choixlettres) {
 				fmt.Println("Vous avez trouvé une lettre")
 				fmt.Println("")
 				LettresChoisi(choixlettres)

@@ -16,7 +16,12 @@
     <body class="bodyindex">
         {{.Difficulte}} <br>
         {{.MotaDeviner}} <br>
-        {{.MotCache}}  
+        {{.MotCache}}  <br>
+
+        {{.MessageEnvoi}} <br>
+        {{.TentativesRestantes}} <br>
+        {{.LettreDejaJoue}} <br>
+        {{.LettreDejaTrouve}}
         <form action="/treatmentjeux" method="POST">
             <input type="text" name="lettre">
         </form>

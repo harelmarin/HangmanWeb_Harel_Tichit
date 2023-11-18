@@ -4,20 +4,38 @@ import (
 	hangman "hangman/Hangman"
 	initTemplate "hangman/templates"
 	"net/http"
+	"regexp"
+	"strings"
 )
 
 func DataJeux(w http.ResponseWriter, r *http.Request) {
-	hangman.Ecriremot()
-	hangman.User.MotaDeviner = hangman.LireFichierMot()
-	hangman.User.MotCache = hangman.User.AffichageTirets()
+	if len(hangman.User.LettreJoueur) == 1 {
+		if hangman.User.LettreDejaChoisie(hangman.User.LettreJoueur) {
+			hangman.User.MessageEnvoi = "Vous avez déjà émis cette lettre !"
+		} else if strings.Contains(hangman.User.MotaDeviner, hangman.User.LettreJoueur) {
+			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
+			hangman.User.MessageEnvoi = "Vous avez trouvé une lettre !"
+			hangman.User.MotCache = hangman.User.AffichageTirets()
+			hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, hangman.User.LettreJoueur)
+		} else {
+			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
+			hangman.User.MessageEnvoi = "La lettre n'est pas dans le mot !"
+			hangman.User.TentativesRestantes--
+		}
+	}
 	initTemplate.Temp.ExecuteTemplate(w, "jeux", hangman.User)
 }
 
 func TreatmentJeux(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/jeux", http.StatusSeeOther)
+		http.Redirect(w, r, "/index", http.StatusMovedPermanently)
 	}
 	hangman.User.LettreJoueur = r.FormValue("lettre")
-
-	http.Redirect(w, r, "/jeux", http.StatusSeeOther)
+	CheckValeur, _ := regexp.MatchString("^[a-zA-Z]{1,25}$", hangman.User.LettreJoueur)
+	if !CheckValeur {
+		hangman.User.MessageEnvoi = "Invalide"
+		hangman.User.LettreJoueur = ""
+	}
+	hangman.User.CheckLettreJoueur = false
+	http.Redirect(w, r, "/jeux", http.StatusMovedPermanently)
 }
