@@ -5,14 +5,14 @@ import (
 )
 
 // Affiche le mot choisi en tiret avec un espace entre chaque tiret
-func AffichageTirets(Word string) string {
+func (p *Global) AffichageTirets() string {
 	var result string
 	lettresfind := LettresTrouvees
-	for i := range Word {
+	for i := range p.MotaDeviner {
 		lettreTrouvee := false
 		for _, lettre := range lettresfind {
-			if Word[i:i+1] == lettre {
-				result += fmt.Sprintf("%c ", Word[i])
+			if p.MotaDeviner[i:i+1] == lettre {
+				result += fmt.Sprintf("%c ", p.MotaDeviner[i])
 				lettreTrouvee = true
 				break
 			}

@@ -25,7 +25,7 @@ func InterfaceJeu() {
 	var choixlettres string
 	// tant que les tentatives sont au dessus de 0 et le mot n'est pas trouvé boucle continue.
 	for tentatives > 0 && MotTrouvé == false {
-		AffichageTirets(Word)
+
 		fmt.Println("")
 		AffichagePendu(tentatives)
 		fmt.Println("")
