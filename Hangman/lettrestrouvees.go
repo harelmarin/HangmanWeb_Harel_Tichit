@@ -22,9 +22,9 @@ func (p *Global) LettreDejaChoisie(LettreJoueur string) bool {
 	return false
 }
 
-func ToutesLettresTrouvees(word string, lettresTrouvees []string) bool {
-	for _, lettre := range word {
-		if !Contains(lettresTrouvees, string(lettre)) {
+func (p *Global) ToutesLettresTrouvees(MotaDeviner string, LettreDejaTrouve []string) bool {
+	for _, lettre := range MotaDeviner {
+		if !Contains(LettreDejaTrouve, string(lettre)) {
 			return false
 		}
 	}

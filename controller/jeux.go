@@ -17,10 +17,29 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
 			hangman.User.MessageEnvoi = "Vous avez trouvé une lettre !"
 			hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, hangman.User.LettreJoueur)
+			if hangman.User.ToutesLettresTrouvees(hangman.User.MotaDeviner, hangman.User.LettreDejaTrouve) {
+				hangman.User.MessageEnvoi = "Vous avez trouvé toutes les lettres !"
+				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+			}
 		} else {
 			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
 			hangman.User.MessageEnvoi = "La lettre n'est pas dans le mot !"
 			hangman.User.TentativesRestantes--
+			if hangman.User.TentativesRestantes <= 0 {
+				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+			}
+		}
+	}
+	if len(hangman.User.LettreJoueur) > 1 {
+		if hangman.User.MotaDeviner == hangman.User.LettreJoueur {
+			hangman.User.MessageEnvoi = "Vous avez trouvé le mot !"
+			http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+		} else {
+			hangman.User.MessageEnvoi = "Vous n'avez pas trouvé le mot !"
+			hangman.User.TentativesRestantes -= 2
+			if hangman.User.TentativesRestantes <= 0 {
+				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+			}
 		}
 	}
 	hangman.User.MotCache = hangman.User.AffichageTirets()

@@ -13,6 +13,7 @@ func InitServer() {
 	http.HandleFunc("/treatmentaccueil", controller.TreatmentAccueil)
 	http.HandleFunc("/jeux", controller.DataJeux)
 	http.HandleFunc("/treatmentjeux", controller.TreatmentJeux)
+	http.HandleFunc("/resultat", controller.DataResultat)
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/asset"))

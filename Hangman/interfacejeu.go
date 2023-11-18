@@ -40,9 +40,7 @@ func InterfaceJeu() {
 				fmt.Println("")
 				LettresChoisi(choixlettres)
 				LettresTrouver(choixlettres)
-				if ToutesLettresTrouvees(Word, LettresTrouvees) {
-					MotTrouvé = true
-				}
+
 			} else {
 				fmt.Println("Cette lettre n'est pas dans le mot")
 				fmt.Println("")
