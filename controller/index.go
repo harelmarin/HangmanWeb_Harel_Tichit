@@ -1,6 +1,7 @@
 package controller
 
 import (
+	hangman "hangman/Hangman"
 	initTemplate "hangman/templates"
 	"net/http"
 )
@@ -15,8 +16,7 @@ func TreatmentIndex(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/index", http.StatusSeeOther)
 	}
 
-	username := Name{r.FormValue("nom")}
-	Nom = username
+	hangman.User.Username = r.FormValue("nom")
 	http.Redirect(w, r, "/accueil", http.StatusSeeOther)
 
 }

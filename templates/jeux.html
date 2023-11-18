@@ -14,8 +14,11 @@
      
     </header>
     <body class="bodyindex">
-        {{.Word}}
-     
+        {{.Difficulte}}
+        {{.MotaDeviner}} <br>  
+        <form action="/treatmentjeux" method="POST">
+            <input type="text" name="lettre">
+        </form>
        
     </body>
 </head>

@@ -7,12 +7,17 @@ import (
 )
 
 func DataJeux(w http.ResponseWriter, r *http.Request) {
-
 	hangman.Ecriremot()
-	Word := hangman.LireFichierMot()
+	hangman.User.MotaDeviner = hangman.LireFichierMot()
 
-	datajeux := User{Word}
+	initTemplate.Temp.ExecuteTemplate(w, "jeux", hangman.User)
+}
 
-	initTemplate.Temp.ExecuteTemplate(w, "jeux", datajeux)
+func TreatmentJeux(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/jeux", http.StatusSeeOther)
+	}
+
+	http.Redirect(w, r, "/jeux", http.StatusSeeOther)
 
 }
