@@ -7,7 +7,6 @@ import (
 )
 
 func DataAccueil(w http.ResponseWriter, r *http.Request) {
-
 	initTemplate.Temp.ExecuteTemplate(w, "accueil", hangman.User)
 }
 

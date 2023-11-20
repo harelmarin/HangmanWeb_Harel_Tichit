@@ -10,7 +10,6 @@ type Global struct {
 	LettreDejaTrouve    []string
 	CheckLettreJoueur   bool
 	MessageEnvoi        string
-	URL                 string
 	TentativesRestantes int
 	CheckVictoire       bool
 }

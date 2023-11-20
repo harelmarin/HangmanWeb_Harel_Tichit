@@ -13,18 +13,20 @@
     <header class="headerjeux">
      
     </header>
-    <body class="bodybackground">
+    <body class="bodybackground center">
         {{.Difficulte}} <br>
         {{.MotaDeviner}} <br>
-        {{.MotCache}}  <br>
-
-        {{.MessageEnvoi}} <br>
-        Nombre de tentatives restantes : {{.TentativesRestantes}} <br>
-        {{.LettreDejaJoue}} <br>
-        {{.LettreDejaTrouve}}
+       <div class="Hangman"></div>
+        <div class="containerjeux">
+        <p class="Motcache">{{.MotCache}}
+        <p>{{.MessageEnvoi}}</p>
+        <p>Nombre de tentatives restantes : {{.TentativesRestantes}}</p> 
+        <p>{{.LettreDejaJoue}}</p>
+        <p>{{.LettreDejaTrouve}}</p>
         <form action="/treatmentjeux" method="POST">
-            <input type="text" name="lettre" autofocus>
+            <input class="pseudo" type="text" name="lettre" autofocus>
         </form>
+    </div>
        
     </body>
 </head>

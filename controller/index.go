@@ -7,7 +7,6 @@ import (
 )
 
 func DataIndex(w http.ResponseWriter, r *http.Request) {
-
 	initTemplate.Temp.ExecuteTemplate(w, "index", nil)
 }
 

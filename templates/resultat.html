@@ -11,14 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
     <title>Résultat</title>
 </head>
-<body class="bodybackground">
-    {{if .CheckVictoire }}
-        <p> Vous avez gagné, le mot était : {{.MotaDeviner}} </p>
+<body class="bodybackground center">
+    <main>
+        <div class="containerresultat">
+    {{if .CheckVictoire}}
+        <p> Vous avez gagné, le mot était : <br> {{.MotaDeviner}} </p>
     {{else}}
-        <p>Vous avez perdu, le mot était : {{.MotaDeviner}}</p>
+        <p>Vous avez perdu, le mot était : <br> {{.MotaDeviner}}</p>
     {{end}}
+   
     <form action="/treatmentresultat" method="POST">
-                <input type="submit" value="Retour à l'écran d'accueil" formaction="/index">
-                <input type="submit" value="Rejouer" formaction="/accueil"> 
+                <input class="boutoncommencer" type="submit" value="Retour à l'écran d'accueil" formaction="/index">
+                <input class="boutoncommencer" type="submit" value="Rejouer" formaction="/accueil"> 
+            </div>
+    </main>
 </body>
 {{end}}
