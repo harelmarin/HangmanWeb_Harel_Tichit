@@ -17,10 +17,13 @@ func TreatmentAccueil(w http.ResponseWriter, r *http.Request) {
 	}
 	hangman.User.LettreDejaJoue = []string{}
 	hangman.User.LettreDejaTrouve = []string{}
+	hangman.User.MessageEnvoi = "Choisissez une lettre ou un mot : "
+	hangman.User.LettreJoueur = ""
 	hangman.User.MotaDeviner = ""
 	hangman.User.Difficulte = r.FormValue("difficulte")
 	hangman.Ecriremot()
-	hangman.User.TentativesRestantes = 9
 	hangman.User.MotaDeviner = hangman.LireFichierMot()
+	hangman.User.TentativesRestantes = 9
+
 	http.Redirect(w, r, "/jeux", http.StatusSeeOther)
 }

@@ -12,6 +12,7 @@ type Global struct {
 	MessageEnvoi        string
 	URL                 string
 	TentativesRestantes int
+	CheckVictoire       bool
 }
 
 var User Global

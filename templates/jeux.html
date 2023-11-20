@@ -13,7 +13,7 @@
     <header class="headerjeux">
      
     </header>
-    <body class="bodyindex">
+    <body class="bodybackground">
         {{.Difficulte}} <br>
         {{.MotaDeviner}} <br>
         {{.MotCache}}  <br>
@@ -23,7 +23,7 @@
         {{.LettreDejaJoue}} <br>
         {{.LettreDejaTrouve}}
         <form action="/treatmentjeux" method="POST">
-            <input type="text" name="lettre">
+            <input type="text" name="lettre" autofocus>
         </form>
        
     </body>

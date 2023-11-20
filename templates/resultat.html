@@ -12,7 +12,13 @@
     <title>Résultat</title>
 </head>
 <body class="bodybackground">
-
-
+    {{if .CheckVictoire }}
+        <p> Vous avez gagné, le mot était : {{.MotaDeviner}} </p>
+    {{else}}
+        <p>Vous avez perdu, le mot était : {{.MotaDeviner}}</p>
+    {{end}}
+    <form action="/treatmentresultat" method="POST">
+                <input type="submit" value="Retour à l'écran d'accueil" formaction="/index">
+                <input type="submit" value="Rejouer" formaction="/accueil"> 
 </body>
 {{end}}
