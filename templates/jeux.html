@@ -19,12 +19,14 @@
        <div class="Hangman"></div>
         <div class="containerjeux">
         <p class="Motcache">{{.MotCache}}
-        <p>{{.MessageEnvoi}}</p>
         <p>Nombre de tentatives restantes : {{.TentativesRestantes}}</p> 
-        <p>{{.LettreDejaJoue}}</p>
-        <p>{{.LettreDejaTrouve}}</p>
+        <div class="containerlettres">
+        <p>Lettres déjà joué : {{.LettreDejaJoue}}</p>
+        <p>Lettres trouvées : {{.LettreDejaTrouve}}</p>
+    </div>
+        <p class="Messageenvoi">{{.MessageEnvoi}}</p>
         <form action="/treatmentjeux" method="POST">
-            <input class="pseudo" type="text" name="lettre" autofocus>
+            <input class="pseudo" type="text" name="lettre" autocomplete="off" autofocus>
         </form>
     </div>
        

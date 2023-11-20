@@ -147,3 +147,12 @@ option {
 p {
     margin: 0;
 }
+
+.Messageenvoi {
+    font-size: 20px;
+}
+
+.containerlettres {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
