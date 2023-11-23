@@ -9,6 +9,9 @@ import (
 )
 
 func DataJeux(w http.ResponseWriter, r *http.Request) {
+	if hangman.User.UserURL != "/jeux" {
+		http.Redirect(w, r, hangman.User.UserURL, http.StatusPermanentRedirect)
+	}
 	hangman.User.LettreJoueur = strings.ToLower(hangman.User.LettreJoueur)
 	if len(hangman.User.LettreJoueur) == 1 {
 		if hangman.User.LettreDejaChoisie(hangman.User.LettreJoueur) {
@@ -20,7 +23,8 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 			if hangman.User.ToutesLettresTrouvees(hangman.User.MotaDeviner, hangman.User.LettreDejaTrouve) {
 				hangman.User.MessageEnvoi = "Vous avez trouvé toutes les lettres !"
 				hangman.User.CheckVictoire = true
-				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+				hangman.User.UserURL = "/resultat"
+				http.Redirect(w, r, "/resultat", http.StatusPermanentRedirect)
 			}
 		} else {
 			hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, hangman.User.LettreJoueur)
@@ -28,19 +32,23 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 			hangman.User.TentativesRestantes--
 			if hangman.User.TentativesRestantes <= 0 {
 				hangman.User.CheckVictoire = false
-				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+				hangman.User.UserURL = "/resultat"
+				http.Redirect(w, r, "/resultat", http.StatusPermanentRedirect)
 			}
 		}
 	}
 	if len(hangman.User.LettreJoueur) > 1 {
 		if hangman.User.MotaDeviner == hangman.User.LettreJoueur {
 			hangman.User.CheckVictoire = true
-			http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+			hangman.User.UserURL = "/resultat"
+			http.Redirect(w, r, "/resultat", http.StatusPermanentRedirect)
 		} else {
+			hangman.User.MessageEnvoi = "Ce n'est pas le bon mot !"
 			hangman.User.TentativesRestantes -= 2
 			if hangman.User.TentativesRestantes <= 0 {
 				hangman.User.CheckVictoire = false
-				http.Redirect(w, r, "/resultat", http.StatusMovedPermanently)
+				hangman.User.UserURL = "/resultat"
+				http.Redirect(w, r, "/resultat", http.StatusPermanentRedirect)
 			}
 		}
 	}
@@ -50,14 +58,14 @@ func DataJeux(w http.ResponseWriter, r *http.Request) {
 
 func TreatmentJeux(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/index", http.StatusMovedPermanently)
+		http.Redirect(w, r, "/accueil", http.StatusPermanentRedirect)
 	}
 	hangman.User.LettreJoueur = r.FormValue("lettre")
-	CheckValeur, _ := regexp.MatchString("^[a-zA-Z]{1,25}$", hangman.User.LettreJoueur)
+	CheckValeur, _ := regexp.MatchString("^[a-zA-Z]{1,15}$", hangman.User.LettreJoueur)
 	if !CheckValeur {
 		hangman.User.MessageEnvoi = "Invalide"
 		hangman.User.LettreJoueur = ""
 	}
 	hangman.User.CheckLettreJoueur = false
-	http.Redirect(w, r, "/jeux", http.StatusMovedPermanently)
+	http.Redirect(w, r, "/jeux", http.StatusPermanentRedirect)
 }

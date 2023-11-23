@@ -7,15 +7,18 @@ import (
 )
 
 func DataIndex(w http.ResponseWriter, r *http.Request) {
+	if hangman.User.UserURL != "" {
+		http.Redirect(w, r, hangman.User.UserURL, http.StatusPermanentRedirect)
+	}
 	initTemplate.Temp.ExecuteTemplate(w, "index", nil)
 }
 
 func TreatmentIndex(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/index", http.StatusSeeOther)
+		http.Redirect(w, r, "/index", http.StatusPermanentRedirect)
 	}
-
 	hangman.User.Username = r.FormValue("nom")
-	http.Redirect(w, r, "/accueil", http.StatusSeeOther)
+	hangman.User.UserURL = "/accueil"
+	http.Redirect(w, r, "/accueil", http.StatusPermanentRedirect)
 
 }

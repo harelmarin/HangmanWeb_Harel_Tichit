@@ -7,12 +7,15 @@ import (
 )
 
 func DataAccueil(w http.ResponseWriter, r *http.Request) {
+	if hangman.User.UserURL != "/accueil" {
+		http.Redirect(w, r, hangman.User.UserURL, http.StatusPermanentRedirect)
+	}
 	initTemplate.Temp.ExecuteTemplate(w, "accueil", hangman.User)
 }
 
 func TreatmentAccueil(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/accueil", http.StatusSeeOther)
+		http.Redirect(w, r, "/accueil", http.StatusPermanentRedirect)
 	}
 	hangman.User.LettreDejaJoue = []string{}
 	hangman.User.LettreDejaTrouve = []string{}
@@ -23,6 +26,6 @@ func TreatmentAccueil(w http.ResponseWriter, r *http.Request) {
 	hangman.Ecriremot()
 	hangman.User.MotaDeviner = hangman.LireFichierMot()
 	hangman.User.TentativesRestantes = 9
-
-	http.Redirect(w, r, "/jeux", http.StatusSeeOther)
+	hangman.User.UserURL = "/jeux"
+	http.Redirect(w, r, "/jeux", http.StatusPermanentRedirect)
 }
