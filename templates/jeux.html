@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
     <title>Jeux</title>
     <body class="bodybackground center">
-        {{.Difficulte}} <br>
         {{.MotaDeviner}} <br>
        <div class="Hangman"></div>
         <div class="containerjeux">
@@ -25,8 +24,7 @@
         <form action="/treatmentjeux" method="POST">
             <input class="pseudo" type="text" name="lettre" autocomplete="off" autofocus>
         </form>
-    </div>
-       
+    </div> 
     </body>
 </head>
 {{end}}
