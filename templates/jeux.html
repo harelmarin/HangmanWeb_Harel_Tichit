@@ -12,7 +12,29 @@
     <title>Jeux</title>
     <body class="bodybackground center">
         {{.MotaDeviner}} <br>
-       <div class="Hangman"></div>
+      
+        {{if eq .TentativesRestantes 9}}
+        <img class ="hangmanimg neuf">
+        {{else if eq .TentativesRestantes 8}}
+        <img class ="hangmanimg huit">
+        {{else if eq .TentativesRestantes 7}}
+        <img class ="hangmanimg sept">
+        {{else if eq .TentativesRestantes 6}}
+        <img class ="hangmanimg six">
+        {{else if eq .TentativesRestantes 5}}
+        <img class ="hangmanimg cinq">
+        {{else if eq .TentativesRestantes 4}}
+        <img class ="hangmanimg quatre">
+        {{else if eq .TentativesRestantes 3}}
+        <img class ="hangmanimg trois">
+        {{else if eq .TentativesRestantes 2}}
+        <img class ="hangmanimg deux">
+        {{else if eq .TentativesRestantes 1}}
+        <img class ="hangmanimg un">
+        {{else if eq .TentativesRestantes 0}}
+        <img class ="hangmanimg zero">
+        {{end}}
+       
         <div class="containerjeux">
         <p class="Motcache">{{.MotCache}}
         <p>Nombre de tentatives restantes : {{.TentativesRestantes}}</p> 

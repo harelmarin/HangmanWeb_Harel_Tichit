@@ -169,3 +169,85 @@ p {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.hangmanimg {
+    width: 320px;
+    height: 320px;
+    border: black solid 5px;
+    background-position: center center;
+
+}
+
+.neuf {
+   
+    background-image: url(../img/pendu9.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.huit {
+    background-image: url(../img/pendu8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+   
+}
+
+.sept{
+    background-image: url(../img/pendu7.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    
+}
+
+.six {
+    background-image: url(../img/pendu6.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.cinq {
+    background-image: url(../img/pendu5.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.quatre {
+    background-image: url(../img/pendu4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.trois{
+    background-image: url(../img/pendu3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.deux {
+    background-image: url(../img/pendu2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.un{
+    background-image: url(../img/pendu1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.zero{
+    background-image: url(../img/pendu0.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
