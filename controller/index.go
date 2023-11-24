@@ -7,8 +7,9 @@ import (
 )
 
 func DataIndex(w http.ResponseWriter, r *http.Request) {
+
 	if hangman.User.UserURL != "" {
-		http.Redirect(w, r, hangman.User.UserURL, http.StatusPermanentRedirect)
+		http.Redirect(w, r, "/index", http.StatusPermanentRedirect)
 	}
 	initTemplate.Temp.ExecuteTemplate(w, "index", nil)
 }
