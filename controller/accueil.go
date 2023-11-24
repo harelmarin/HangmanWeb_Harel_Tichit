@@ -25,6 +25,10 @@ func TreatmentAccueil(w http.ResponseWriter, r *http.Request) {
 	hangman.User.Difficulte = r.FormValue("difficulte")
 	hangman.Ecriremot()
 	hangman.User.MotaDeviner = hangman.LireFichierMot()
+	LettreAleatoire := hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
+	hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, LettreAleatoire)
+	hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, LettreAleatoire)
+	hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
 	hangman.User.TentativesRestantes = 9
 	hangman.User.UserURL = "/jeux"
 	http.Redirect(w, r, "/jeux", http.StatusPermanentRedirect)

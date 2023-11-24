@@ -45,6 +45,6 @@ func LettresChoisi(choixlettres string) []string {
 	return LettresChoisis
 }
 
-func ChoisirLettreAleatoire(word string) string {
-	return string(word[rand.Intn(len(word))])
+func (p *Global) ChoisirLettreAleatoire(MotaDeviner string) string {
+	return string(MotaDeviner[rand.Intn(len(MotaDeviner))])
 }

@@ -14,9 +14,6 @@ func InterfaceJeu() {
 	// Ecrit le mot aléatoire dans le fichier mot.txt (en le créant)
 	Ecriremot()
 	Word := LireFichierMot()
-	lettreAleatoire := ChoisirLettreAleatoire(Word)
-	LettresTrouvees = append(LettresTrouvees, lettreAleatoire)
-	LettresChoisis = append(LettresChoisis, lettreAleatoire)
 	fmt.Println("Le mot à deviner : ")
 	fmt.Println("")
 	//On affiche le mot en tiret + espace
