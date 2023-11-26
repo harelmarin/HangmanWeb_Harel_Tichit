@@ -24,7 +24,7 @@
                     <p>C'est un mode difficile, félicitations !</p>
                 {{end}}
             {{else}}
-                <p>{{.Username}} a perdu en mode {{.Difficulte}}, le mot était : <br> <div class="MotDeviner"> {{.MotaDeviner}}</div></p>
+                <p>{{.Username}} a perdu en mode {{.Difficulte}}, le mot était : <br>  <img class ="hangmanimg zero"> <div class="MotDeviner"> {{.MotaDeviner}}</div></p>
                 {{if eq .Difficulte "Facile"}}
                     <p>C'est un mode facile, essayez encore !</p>
                 {{else if eq .Difficulte "Moyen"}}
