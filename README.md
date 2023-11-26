@@ -5,7 +5,11 @@
 
  Pour démarrer le jeu : 
 
- 1 - Démarre votre IDE 
- 2 - Ouvrir le terminal et écrire : git clone https://github.com/harelmarin/HangmanWeb_Harel_Tichit.git
- 3 - Ouvrir le terminal et écrire : go run . 
+ 1 - Démarre votre IDE     
+ 2 - Ouvrir le terminal et écrire : git clone https://github.com/harelmarin/HangmanWeb_Harel_Tichit.git    
+ 3 - Toujours dans le terminal, écrire : go run .     
+ 4 - Ouvrir votre navigateur et écrire dans la barre de recherche : http://localhost:8080/index    
+ 
+ Vous pouvez maintenant jouer au jeu. 
+
  
