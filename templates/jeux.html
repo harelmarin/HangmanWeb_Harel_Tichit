@@ -1,51 +1,60 @@
 {{define "jeux"}}
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content ="IE-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
     <title>Jeux</title>
-    <body class="bodybackground center">
-      
-        {{if eq .TentativesRestantes 9}}
-        <img class ="hangmanimg neuf">
-        {{else if eq .TentativesRestantes 8}}
-        <img class ="hangmanimg huit">
-        {{else if eq .TentativesRestantes 7}}
-        <img class ="hangmanimg sept">
-        {{else if eq .TentativesRestantes 6}}
-        <img class ="hangmanimg six">
-        {{else if eq .TentativesRestantes 5}}
-        <img class ="hangmanimg cinq">
-        {{else if eq .TentativesRestantes 4}}
-        <img class ="hangmanimg quatre">
-        {{else if eq .TentativesRestantes 3}}
-        <img class ="hangmanimg trois">
-        {{else if eq .TentativesRestantes 2}}
-        <img class ="hangmanimg deux">
-        {{else if eq .TentativesRestantes 1}}
-        <img class ="hangmanimg un">
-        {{else if eq .TentativesRestantes 0}}
-        <img class ="hangmanimg zero">
-        {{end}}
-       
-        <div class="containerjeux">
-        <p class="Motcache">{{.MotCache}}
-        <p>Nombre de tentatives restantes : {{.TentativesRestantes}}</p> 
-        <div class="containerlettres">
-        <p>Lettres déjà joué : {{.LettreDejaJoue}}</p>
-        <p>Lettres trouvées : {{.LettreDejaTrouve}}</p>
-    </div>
-        <p class="Messageenvoi">{{.MessageEnvoi}}</p>
-        <form action="/treatmentjeux" method="POST">
-            <input class="pseudo" type="text" name="lettre" autocomplete="off" autofocus>
-        </form>
-    </div> 
-    </body>
-</head>
+</head>    
+
+<body class="bodybackground center">
+    <header class="headerindex">
+        <h1 class="fancy">Hangman Game</h1>
+    </header>
+    <div class="jeux">
+        <div class="conteneur1">
+            <div class="image du pendu">
+
+                {{if eq .TentativesRestantes 9}}
+                <img class="hangmanimg neuf">
+                {{else if eq .TentativesRestantes 8}}
+                <img class="hangmanimg huit">
+                {{else if eq .TentativesRestantes 7}}
+                <img class="hangmanimg sept">
+                {{else if eq .TentativesRestantes 6}}
+                <img class="hangmanimg six">
+                {{else if eq .TentativesRestantes 5}}
+                <img class="hangmanimg cinq">
+                {{else if eq .TentativesRestantes 4}}
+                <img class="hangmanimg quatre">
+                {{else if eq .TentativesRestantes 3}}
+                <img class="hangmanimg trois">
+                {{else if eq .TentativesRestantes 2}}
+                <img class="hangmanimg deux">
+                {{else if eq .TentativesRestantes 1}}
+                <img class="hangmanimg un">
+                {{end}}
+
+            </div>
+            <div class="containerjeux">
+                <p class="Motcache">{{.MotCache}}</p>
+            </div>
+        </div>    
+            <div class="containerlettres">
+                <p>Nombre de tentatives restantes : {{.TentativesRestantes}}</p>
+                <p>Lettres déjà joué : <span class="highlight1"> {{.LettreDejaJoue}} </span></p>
+                <p>Lettres trouvées : <span class="highlight2"> {{.LettreDejaTrouve}} </span></p>
+                <p class="Messageenvoi">{{.MessageEnvoi}}</p>
+                <form action="/treatmentjeux" method="POST">
+                    <input class="pseudo" type="text" name="lettre" autocomplete="off" autofocus>
+                </form>
+            </div>
+    </div>    
+</body>
 {{end}}
