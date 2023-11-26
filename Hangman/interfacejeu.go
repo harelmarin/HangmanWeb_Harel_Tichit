@@ -3,7 +3,9 @@ package hangman
 import (
 	"fmt"
 	"strings"
+	"os"
 )
+
 
 // Fonction d'Interface de jeu
 func InterfaceJeu() {
@@ -90,3 +92,28 @@ func InterfaceJeu() {
 	}
 
 }
+
+func (p *Global) Ecriremot() {
+	filename := "Hangman/dico.txt"
+	word, err := GetRandomWordFromFile(filename)
+	if err != nil {
+	   fmt.Println("Erreur:", err)
+	   return
+	}
+ 
+	switch p.Difficulte {
+	case "easy":
+	   // Révélez deux lettres au hasard.
+	   p.MotaDeviner = p.RevealerRandomLetters(word, 2)
+	case "medium":
+	   // Révélez une lettre au hasard.
+	   p.MotaDeviner = p.RevealerRandomLetters(word, 1)
+	case "hard":
+	   // Ne révélez aucune lettre.
+	   p.MotaDeviner = strings.Repeat("_", len(word))
+	}
+
+	os.WriteFile("mot.txt", []byte(word), 0644)
+}
+
+

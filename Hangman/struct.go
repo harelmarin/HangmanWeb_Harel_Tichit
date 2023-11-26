@@ -1,6 +1,6 @@
 package hangman
 
-type Global struct {
+type Global struct {	
 	Username            string
 	Difficulte          string
 	MotaDeviner         string
