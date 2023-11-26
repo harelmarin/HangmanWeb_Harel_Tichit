@@ -2,32 +2,28 @@ package hangman
 
 import (
 	"fmt"
-	"os"
 	"math/rand"
+	"os"
 )
 
-// Prend le mot dans créé aléatoirement grâce à la fonction GetRandomWordFromFile
-// Et l'écrit dans le mot.txt avec la fonction WriteFile
-
-
-func (p *Global) RevealerRandomLetters(word string, count int) string {
-	if count > len(word) {
-	   count = len(word)
+func (p *Global) RevealerRandomLetters(MotaDeviner string, count int) string {
+	if count > len(MotaDeviner) {
+		count = len(MotaDeviner)
 	}
- 
+
 	// Convertir le mot en tranches de runes pour gérer les caractères Unicode.
-	runes := []rune(word)
- 
+	runes := []rune(MotaDeviner)
+
 	// Générer des indices uniques aléatoires.
-	indices := rand.Perm(len(word))[:count]
- 
+	indices := rand.Perm(len(MotaDeviner))[:count]
+
 	// Révéler les lettres aux indices spécifiés.
 	for _, idx := range indices {
-	   runes[idx] = []rune(word)[idx]
+		runes[idx] = []rune(MotaDeviner)[idx]
 	}
- 
+
 	return string(runes)
- }
+}
 
 // Fonction pour supprimer le fichier mot.txt
 func SupprimerMot() {

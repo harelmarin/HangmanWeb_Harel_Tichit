@@ -2,10 +2,9 @@ package hangman
 
 import (
 	"fmt"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // Fonction d'Interface de jeu
 func InterfaceJeu() {
@@ -14,7 +13,7 @@ func InterfaceJeu() {
 	//Supprime le fichier mot.txt pour éviter les conflits
 	SupprimerMot()
 	// Ecrit le mot aléatoire dans le fichier mot.txt (en le créant)
-	Ecriremot()
+
 	Word := LireFichierMot()
 	fmt.Println("Le mot à deviner : ")
 	fmt.Println("")
@@ -97,23 +96,21 @@ func (p *Global) Ecriremot() {
 	filename := "Hangman/dico.txt"
 	word, err := GetRandomWordFromFile(filename)
 	if err != nil {
-	   fmt.Println("Erreur:", err)
-	   return
+		fmt.Println("Erreur:", err)
+		return
 	}
- 
-	switch p.Difficulte {
+
+	switch User.Difficulte {
 	case "Facile":
-	   // Révélez deux lettres au hasard.
-	   p.MotaDeviner = p.RevealerRandomLetters(word, 2)
+		// Révélez deux lettres au hasard.
+		User.MotaDeviner = User.RevealerRandomLetters(word, 2)
 	case "Moyen":
-	   // Révélez une lettre au hasard.
-	   p.MotaDeviner = p.RevealerRandomLetters(word, 1)
+		// Révélez une lettre au hasard.
+		User.MotaDeviner = User.RevealerRandomLetters(word, 1)
 	case "Difficile":
-	   // Ne révélez aucune lettre.
-	   p.MotaDeviner = strings.Repeat("_", len(word))
+		// Ne révélez aucune lettre.
+		User.MotaDeviner = strings.Repeat("_", len(word))
 	}
 
 	os.WriteFile("mot.txt", []byte(word), 0644)
 }
-
-

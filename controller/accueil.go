@@ -22,14 +22,27 @@ func TreatmentAccueil(w http.ResponseWriter, r *http.Request) {
 	hangman.User.MessageEnvoi = "Choisissez une lettre ou un mot : "
 	hangman.User.LettreJoueur = ""
 	hangman.User.MotaDeviner = ""
-	hangman.User.Difficulte = r.FormValue("difficulte") 
-	hangman.Ecriremot()
+	hangman.User.Difficulte = r.FormValue("difficulte")
+	hangman.User.Ecriremot()
 	hangman.User.MotaDeviner = hangman.LireFichierMot()
-	LettreAleatoire := hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
-	hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, LettreAleatoire)
-	hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, LettreAleatoire)
-	hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
-	hangman.User.TentativesRestantes = 9   
+	if hangman.User.Difficulte == "Facile" {
+		lettrealeatoire1 := hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
+		lettrealeatoire2 := hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
+		if lettrealeatoire2 == lettrealeatoire1 {
+			lettrealeatoire2 = hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
+		}
+		hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, lettrealeatoire1)
+		hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, lettrealeatoire1)
+		hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, lettrealeatoire2)
+		hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, lettrealeatoire2)
+	} else if hangman.User.Difficulte == "Moyen" {
+		lettrealeatoire := hangman.User.ChoisirLettreAleatoire(hangman.User.MotaDeviner)
+		hangman.User.LettreDejaJoue = append(hangman.User.LettreDejaJoue, lettrealeatoire)
+		hangman.User.LettreDejaTrouve = append(hangman.User.LettreDejaTrouve, lettrealeatoire)
+	} else if hangman.User.Difficulte == "Difficile" {
+
+	}
+	hangman.User.TentativesRestantes = 9
 	hangman.User.UserURL = "/jeux"
 	http.Redirect(w, r, "/jeux", http.StatusPermanentRedirect)
 }
