@@ -102,13 +102,13 @@ func (p *Global) Ecriremot() {
 	}
  
 	switch p.Difficulte {
-	case "easy":
+	case "Facile":
 	   // Révélez deux lettres au hasard.
 	   p.MotaDeviner = p.RevealerRandomLetters(word, 2)
-	case "medium":
+	case "Moyen":
 	   // Révélez une lettre au hasard.
 	   p.MotaDeviner = p.RevealerRandomLetters(word, 1)
-	case "hard":
+	case "Difficile":
 	   // Ne révélez aucune lettre.
 	   p.MotaDeviner = strings.Repeat("_", len(word))
 	}

@@ -14,15 +14,29 @@
 <body class="bodybackground">
     <main>
         <div class="containerresultat">
-    {{if .CheckVictoire}}
-        <p> {{.Username}} a gagné en mode {{.Difficulte}}, le mot était : <br> <div class="MotDeviner"> {{.MotaDeviner}} </div></p>
-    {{else}}
-        <p>{{.Username}} a perdu en mode {{.Difficulte}}, le mot était : <br> <div class="MotDeviner"> {{.MotaDeviner}}</div></p>
-    {{end}}
-   
-    <form action="/treatmentresultat" method="POST">
+            {{if .CheckVictoire}}
+                <p>{{.Username}} a gagné en mode {{.Difficulte}}, le mot était : <br> <div class="MotDeviner"> {{.MotaDeviner}} </div></p>
+                {{if eq .Difficulte "Facile"}}
+                    <p>C'est un mode facile, bravo !</p>
+                {{else if eq .Difficulte "Moyen"}}
+                    <p>C'est un mode moyen, bien joué !</p>
+                {{else if eq .Difficulte "Difficile"}}
+                    <p>C'est un mode difficile, félicitations !</p>
+                {{end}}
+            {{else}}
+                <p>{{.Username}} a perdu en mode {{.Difficulte}}, le mot était : <br> <div class="MotDeviner"> {{.MotaDeviner}}</div></p>
+                {{if eq .Difficulte "Facile"}}
+                    <p>C'est un mode facile, essayez encore !</p>
+                {{else if eq .Difficulte "Moyen"}}
+                    <p>C'est un mode moyen, vous pouvez le faire !</p>
+                {{else if eq .Difficulte "Difficile"}}
+                    <p>C'est un mode difficile, ne vous découragez pas !</p>
+                {{end}}
+            {{end}}
+            <form action="/treatmentresultat" method="POST">
                 <input class="boutoncommencer" type="submit" value="Retour à l'écran d'accueil">
-            </div>
+            </form>
+        </div>
     </main>
 </body>
 {{end}}
