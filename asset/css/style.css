@@ -68,13 +68,13 @@ h2 {
 .boutoncommencer {
     text-align: center;
     width: 360px;
-    height: 34px;
+    height: auto;
     background: transparent;
     border: 2px solid #fff;
     border-radius: 2px;
     outline: none;
     color: #fff;
-    font-size: 15px;
+    font-size: 30px;
     margin-top: 6%;
 }
 .boutoncommencer:hover {
@@ -111,12 +111,6 @@ option {
     align-items: center; 
 }
 
-.containerresultat { 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 
 .center {
     display: flex;
@@ -149,10 +143,111 @@ p {
 }
 
 .Messageenvoi {
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.containerresultat {
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+}
+
+.MotDeviner {
+    margin-top: 5%;
+    color :#4cd6c6;
+    font-size: 60px;
 }
 
 .containerlettres {
+    font-size: 20px;
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.hangmanimg {
+    width: 320px;
+    height: 320px;
+    border: black solid 5px;
+    background-position: center center;
+
+}
+
+.neuf {
+   
+    background-image: url(../img/pendu9.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.huit {
+    background-image: url(../img/pendu8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+   
+}
+
+.sept{
+    background-image: url(../img/pendu7.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    
+}
+
+.six {
+    background-image: url(../img/pendu6.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.cinq {
+    background-image: url(../img/pendu5.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.quatre {
+    background-image: url(../img/pendu4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.trois{
+    background-image: url(../img/pendu3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.deux {
+    background-image: url(../img/pendu2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.un{
+    background-image: url(../img/pendu1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
+.zero{
+    background-image: url(../img/pendu0.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
+
